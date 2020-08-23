@@ -3,24 +3,31 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const heros = ['Jasim', 'Jafor-Iqbal','Sakib Khan']
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Hero name={heros[0]} age='56'></Hero>
+      <Hero name={heros[1]}></Hero>
+      <Hero name={heros[2]}></Hero>
+      <Hero></Hero>
+      <Hero></Hero>
     </div>
   );
+}
+
+function Hero(props){
+  console.log(props.name);
+  const heroStyle = {
+    border: '3px solid red',
+    margin: '5px',
+    borderRadius: '10px'
+  }
+  return (
+      <div style={heroStyle}>
+        <h1>I am hero-{props.name}</h1>
+  <h3>I have done 5 movies in {props.age || 30}</h3>
+      </div>
+  )
 }
 
 export default App;
