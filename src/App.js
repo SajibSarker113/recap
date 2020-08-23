@@ -18,12 +18,22 @@ function App() {
 
 function MovieCounter(){
   const [count, setCount]= useState(0);
+  const handleClick = () => setCount(count + 1)
   return (
     <div>
-      <button>Add Movie</button>
-      <h3>Number of movie: </h3>
+      <button onClick={handleClick}>Add Movie</button>
+      <h3>Number of movie: {count} </h3>
+
+      <MovieDisplay movies={count}></MovieDisplay>
+      <MovieDisplay movies={count + 10}></MovieDisplay>
+      <MovieDisplay movies={count}></MovieDisplay>
+      <MovieDisplay movies={count}></MovieDisplay>
     </div>
   )
+}
+
+function MovieDisplay(props){
+  return <h4>Movies I have acted:{props.movies} </h4>
 }
 
 function Hero(props){
