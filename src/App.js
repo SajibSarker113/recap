@@ -3,15 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const heros = ['Jasim', 'Jafor-Iqbal','Sakib Khan']
+  const nayoks = [{name: 'Jasim', age: 60}, {name: 'JaforIqbal', age: 60}, {name: 'SakibKhan', age: 60},{name: 'OmorSunny', age: 60}, {name: 'Alomgir', age: 60}];
   return (
     <div className="App">
       <MovieCounter></MovieCounter>
-      <Hero name={heros[0]} age='56'></Hero>
-      <Hero name={heros[1]}></Hero>
-      <Hero name={heros[2]}></Hero>
-      <Hero></Hero>
-      <Hero></Hero>
+      {
+      nayoks.map(nk => <Nayok name={nk.name}></Nayok>)
+      }
+      {/* <Nayok name={nayoks[0]} age='56'></Nayok>
+      <Nayok name={nayoks[1]}></Nayok>
+      <Nayok name={nayoks[2]}></Nayok>
+      <Nayok></Nayok>
+      <Nayok></Nayok> */}
     </div>
   );
 }
@@ -36,16 +39,16 @@ function MovieDisplay(props){
   return <h4>Movies I have acted:{props.movies} </h4>
 }
 
-function Hero(props){
+function Nayok(props){
   //console.log(props.name);
-  const heroStyle = {
+  const nayokstyle = {
     border: '3px solid red',
     margin: '5px',
     borderRadius: '10px'
   }
   return (
-      <div style={heroStyle}>
-        <h1>I am hero-{props.name}</h1>
+      <div style={nayokstyle}>
+        <h1>I am Nayok-{props.name}</h1>
   <h3>I have done 5 movies in {props.age || 30}</h3>
       </div>
   )
